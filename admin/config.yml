@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: static/uploads
+public_folder: /uploads
+collections:
+  - name: posts
+    label: Blog posts
+    label_singular: Post
+    folder: content/posts
+    create: true
+    extension: md
+    slug: "{{slug}}"
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Publish date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: Category, name: category, widget: string, hint: "Use the same spelling as other posts, e.g. Tech"}
+      - {label: Emoji icon, name: emoji, widget: string, default: "📝", hint: "Shown on the card if there is no cover image"}
+      - {label: Short summary, name: summary, widget: text}
+      - {label: Cover image, name: image, widget: image, required: false}
+      - {label: Body, name: body, widget: markdown}
+  - name: settings
+    label: Settings
+    files:
+      - name: ads
+        label: Ad settings
+        file: content/settings/ads.json
+        format: json
+        fields:
+          - {label: Show ads, name: enabled, widget: boolean, default: false, hint: "Switch on only after AdSense approves the site"}
+          - {label: AdSense publisher ID, name: publisher_id, widget: string, required: false, hint: "Looks like ca-pub-1234567890123456"}
+          - {label: Header ad slot ID, name: slot_header, widget: string, required: false, hint: "Numbers only, from your AdSense ad unit"}
+          - {label: In-article ad slot ID, name: slot_article, widget: string, required: false}
+          - {label: Sidebar ad slot ID, name: slot_sidebar, widget: string, required: false}
+          - {label: Home page feed ad slot ID, name: slot_feed, widget: string, required: false}
