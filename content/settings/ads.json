@@ -1,1 +1,8 @@
-{"enabled":false,"publisher_id":"","slot_header":"","slot_article":"","slot_sidebar":"","slot_feed":""}
+{
+  "enabled": true,
+  "publisher_id": "",
+  "slot_header": "",
+  "slot_article": "",
+  "slot_sidebar": "",
+  "slot_feed": ""
+}
